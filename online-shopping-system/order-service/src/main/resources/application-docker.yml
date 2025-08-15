@@ -1,0 +1,49 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: order-service
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration
+
+  cassandra:
+    contact-points:
+      - cassandra1
+    port: 9042
+    keyspace-name: orders_keyspace
+    local-datacenter: datacenter1
+    schema-action: none
+    request:
+      timeout: 20s
+    connection:
+      connect-timeout: 20s
+      init-query-timeout: 20s
+
+  kafka:
+    bootstrap-servers: kafka:29092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    properties:
+      request.timeout.ms: 15000
+      delivery.timeout.ms: 30000
+
+jwt:
+  issuer: oss-demo
+  secret: 3c1a6f85d7b24b7e9f0a2c5d8fe4b3a76c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f
+
+item:
+  service:
+    url: http://item-service:8081
+payment:
+  service:
+    url: http://payment-mock:8080
+
+kafka:
+  topic:
+    order-events: order-events
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html

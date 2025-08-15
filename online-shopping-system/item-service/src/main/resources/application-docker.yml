@@ -1,0 +1,14 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: item-service
+  data:
+    mongodb:
+      uri: mongodb://mongodb:27017/itemdb
+      auto-index-creation: true
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html

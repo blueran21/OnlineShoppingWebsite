@@ -1,0 +1,17 @@
+{
+  "priority": 5,
+  "request": {
+    "method": "POST",
+    "url": "/payments"
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": {
+      "status": "SUCCESS",
+      "paymentId": "{{randomValue length=12 type='ALPHANUMERIC'}}"
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: account-service
+  datasource:
+    url: jdbc:mysql://mysql:3306/accounts_db?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: mysqlroot
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+jwt:
+  issuer: oss-demo
+  secret: 3c1a6f85d7b24b7e9f0a2c5d8fe4b3a76c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f
+  expiration-minutes: 15
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
